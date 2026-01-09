@@ -1,0 +1,28 @@
+﻿<div id="detailsSection" style="display:none; border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+    <h3>Category Details</h3>
+    <p><strong>ID:</strong> <span id="detailId"></span></p>
+    <p><strong>Name:</strong> <span id="detailName"></span></p>
+    <p><strong>Description:</strong> <span id="detailDescription"></span></p>
+    <button onclick="$('#detailsSection').hide();">Close</button>
+</div>
+@section Scripts {
+
+    <script>
+        function showDetails(id) {
+            $.ajax({
+                url: `https://localhost:7251/api/Ctegories/${id}`,
+                type: 'GET',
+                success: function (category) {
+                    $('#detailId').text(category.id);
+                    $('#detailName').text(category.name);
+                    $('#detailDescription').text(category.description);
+                    $('#detailsSection').show();
+                },
+                error: function () {
+                    alert('Failed to fetch category details.');
+                }
+            });
+        }
+    </script>
+
+}
