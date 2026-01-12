@@ -51,7 +51,7 @@ namespace CrudeUsingWebClient.Controllers
 
             List<Ctegories> ctegories = JsonSerializer.Deserialize<List<Ctegories>>(jsonresponse, new JsonSerializerOptions
             {
-
+ 
                 PropertyNameCaseInsensitive = true
             });
 
